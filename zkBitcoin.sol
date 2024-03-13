@@ -1,7 +1,3 @@
-/*MUST REMOVE THIS BEFORE LAUNCH
-		startTime = block.timestamp; //MUST CHANGE BACK TO NORMAL IN REGULAR JUST TESTING;// 1710950400;  //Date and time (GMT):  Wednesday, March 20, 2024 4:00:00 PM GMT
-Change back to 1710950400 please
-*/
 // Zero Knowledge Bitcoin - zkBitcoin (zkBTC) Token - Token and Mining Contract
 // Website: https://zkBitcoin.org
 // Github: https://github.com/zkBitcoinToken/
@@ -30,8 +26,22 @@ Change back to 1710950400 please
 //
 // startTime =  1710950400;  //Date and time (GMT):  Wednesday, March 20, 2024 4:00:00 PM GMT openMining can then be called and mining will have rewards, until then all rewards will be 0.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /////
-//IMPORT STUFF below
+//IMPORT STUFF below, then main zkBitcoin contract
 /////
 
 // File: contracts/draft-IERC20Permit.sol
@@ -39,7 +49,11 @@ Change back to 1710950400 please
 // SPDX-License-Identifier: MIT
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/draft-IERC20Permit.sol)
 
+
 pragma solidity ^0.8.13;
+
+
+
 
 /**
  * @dev Interface of the ERC20 Permit extension allowing approvals to be made via signatures, as defined in
@@ -1221,7 +1235,7 @@ contract zkBitcoin is ERC20Permit {
 
 	constructor() ERC20("zkBitcoin", "zkBTC") ERC20Permit("zkBitcoin") {
 		miningTarget = _MAXIMUM_TARGET.div(1); //easy difficulty u can solve but no reward until startTime and OpenMining is ran
-		startTime = block.timestamp; //MUST CHANGE BACK TO NORMAL IN REGULAR JUST TESTING;// 1710950400;  //Date and time (GMT):  Wednesday, March 20, 2024 4:00:00 PM GMT
+		startTime = 1710950400;  //Date and time (GMT):  Wednesday, March 20, 2024 4:00:00 PM GMT
 		reward_amount = 0;  //Zero reward for first days to setup miners
 		rewardEra = 0;
 		tokensMinted = 0;
