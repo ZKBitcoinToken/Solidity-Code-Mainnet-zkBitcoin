@@ -1,4 +1,5 @@
 // Zero Knowledge Bitcoin - zkBitcoin (zkBTC) Token - Token and Mining Contract
+//
 // Website: https://zkBitcoin.org
 // Github: https://github.com/zkBitcoinToken/
 // Discord: https://discord.gg/hZ8yzcCRFJ
