@@ -1,32 +1,4 @@
-//MUST REMOVE ALL THINGS FROM HEADING BEFORE MAINNET LAUNCH!!!!
-//MUST REMOVE ALL THINGS FROM HEADING BEFORE MAINNET LAUNCH!!!!
-//      Must taken out the 0xBitcoin mock ERC20 contract and put in 0xBitcoins' Base Layer 2 Address on Mainnet Launch.
-//      Must taken out the 0xBitcoin mock ERC20 contract and put in 0xBitcoins' Base Layer 2 Address on Mainnet Launch.
-//      Must taken out the 0xBitcoin mock ERC20 contract and put in 0xBitcoins' Base Layer 2 Address on Mainnet Launch.
-// VV CODE BELOW VVVV
-   //     a0xbtcMock child = new a0xbtcMock(); //DELETE THIS USE BELOW
-	//	_0xBitcoin_Address = address(child); //ZeroXBitcoin Address;  //Should be 0xB6eD7644C69416d67B522e20bC294A9a9B405B31 = Mainnet Ethereum
-// ^^ ABOVE
-
-
-
-//		reward_amount =  ( 50 * 10**18)/( 2**(rewardEra) );  //Zero reward for first days to setup miners 
-//    ^^^ MUST CHANGE TO 0 in constructor reward_amount because no reward until openMining is called
-//    ^^^ MUST CHANGE TO 0 in constructor reward_amount because no reward until openMining is called
-//    ^^^ MUST CHANGE TO 0 in constructor reward_amount because no reward until openMining is called
-// VVVV VERY IMPORTANT BELOW VVVV MUST REMOVE
-// Remove Ownable from the BasedWorkToken Contract also.
-// Remove Ownable from the BasedWorkToken Contract also.
-// Remove Ownable from the BasedWorkToken Contract also.
-// Remove Ownable from the BasedWorkToken Contract also.
-/* MUST REMOVE AdjustDiff()  for mainnet, it is only used to reset for testing test more.
-
-    function AdjustDiff() public onlyOwner {
-            miningTarget = 2**234;
-    } 
-    */
-//
-// Based Work Token - BWORK Token - Token and Mining Contract Base Network
+// Based Work Token - BWORK Token - Token and 0xBitcoin <-> BWORK Conversion Contract Ethereum Network
 //
 // Website: https://BasedWorkToken.org/
 // Github: https://github.com/BasedWorkToken/
@@ -36,11 +8,11 @@
 //
 // Distrubtion of Based Work Token - BWORK Token is as follows:
 //
-// 100% of BWORK Token is distributed using this contract which distributes tokens to users by using Proof of work and is considered a Version 2 & Layer 2 0xBitcoin allowing all 0xBitcoin to be converted to BWORK Tokens.
+// 100% of BWORK Token is distributed to users by using Proof of work and is considered a Version 2 & Layer 2 0xBitcoin allowing all 0xBitcoin to be converted to BWORK Tokens.
 // Computers solve a complicated problem to gain tokens!
 // 100% of 0xBitcoin accepted for BWORK Tokens
 // 100% Of the Token is distributed to the users! No dev fee!
-//
+// Token Mining will take place on Base Blockchain, while having the token reside on Mainnet Ethereum.
 //
 // Symbol: BWORK
 // Decimals: 18
@@ -75,7 +47,7 @@
 
 
 /////
-//IMPORT Includes below, then main BasedWorkToken contract
+//IMPORT Includes below, then main BasedWorkToken Mainnet Ethereum contract
 /////
 
 // File: contracts/draft-IERC20Permit.sol
@@ -1138,7 +1110,7 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
 
 // File: contracts/BasedWorkToken.sol
 
-// Based Work Token - BWORK Token - Token and Mining Contract Base Network
+// Based Work Token - BWORK Token - Token and 0xBitcoin <-> BWORK Conversion Contract Ethereum Network
 //
 // Website: https://BasedWorkToken.org/
 // Github: https://github.com/BasedWorkToken/
@@ -1148,10 +1120,11 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
 //
 // Distrubtion of Based Work Token - BWORK Token is as follows:
 //
-// 100% of BWORK Token is distributed using this contract which distributes tokens to users by using Proof of work and is considered a Layer 2 and v2 of 0xBitcoin allowing all 0xBitcoin to be converted to BWORK Tokens.
+// 100% of BWORK Token is distributed to users by using Proof of work and is considered a Layer 2 and v2 of 0xBitcoin allowing all 0xBitcoin to be converted to BWORK Tokens.
 // Computers solve a complicated problem to gain tokens!
 // 100% of 0xBitcoin accepted for BWORK Tokens
 // 100% Of the Token is distributed to the users! No dev fee!
+// Token Mining will take place on Base Blockchain, while having the token reside on Mainnet Ethereum.
 //
 //
 // Symbol: BWORK
