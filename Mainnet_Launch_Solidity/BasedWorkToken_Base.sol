@@ -1,25 +1,3 @@
-//MUST REMOVE ALL THINGS FROM HEADING BEFORE MAINNET LAUNCH!!!!
-//MUST REMOVE ALL THINGS FROM HEADING BEFORE MAINNET LAUNCH!!!!
-//      Must taken out the 0xBitcoin mock ERC20 contract and put in 0xBitcoins' Base Layer 2 Address on Mainnet Launch.
-//      Must taken out the 0xBitcoin mock ERC20 contract and put in 0xBitcoins' Base Layer 2 Address on Mainnet Launch.
-//      Must taken out the 0xBitcoin mock ERC20 contract and put in 0xBitcoins' Base Layer 2 Address on Mainnet Launch.
-//
-//		reward_amount =  ( 50 * 10**18)/( 2**(rewardEra) );  //Zero reward for first days to setup miners 
-//    ^^^ MUST CHANGE TO 0 in constructor reward_amount because no reward until openMining is called
-//    ^^^ MUST CHANGE TO 0 in constructor reward_amount because no reward until openMining is called
-//    ^^^ MUST CHANGE TO 0 in constructor reward_amount because no reward until openMining is called
-// VVVV VERY IMPORTANT BELOW VVVV MUST REMOVE
-// Remove Ownable from the BasedWorkToken Contract also.
-// Remove Ownable from the BasedWorkToken Contract also.
-// Remove Ownable from the BasedWorkToken Contract also.
-// Remove Ownable from the BasedWorkToken Contract also.
-/* MUST REMOVE AdjustDiff()  for mainnet, it is only used to reset for testing test more.
-
-    function AdjustDiff() public onlyOwner {
-            miningTarget = 2**234;
-    } 
-    */
-//
 // Based Work Token - BWORK Token - Mining Contract Base Network
 //
 // Website: https://BasedWorkToken.org/
@@ -1240,42 +1218,15 @@ library ExtendedMath2 {
 }
 
 
-interface IRightsTo0xBitcoinV1 {
-    function withdrawToken(uint256 _amount, address _to) external;
-    function burnToken(uint256 _amount, address _from) external;
-}
 
 
 
-
-
-contract RightsTo0xBitcoinV1 is ERC20Permit, Ownable {
-	constructor() ERC20("Rights To 0xBitcoin Token", "R0xBTC", 18, 10_835_900 * 10**18 ) ERC20Permit("Rights To 0xBitcoin Token") {
-     
-    }
-
-    function burnToken(uint256 _amount, address _from) external onlyOwner{
-    
-        // transfer the token from address of this contract
-        // to address of the user (executing the withdrawToken() function)
-                _burn(_from, _amount);
-   }
-
-    function withdrawToken(uint256 _amount, address _from) external onlyOwner{
-        // transfer the token from address of this contract
-        // to address of the user (executing the withdrawToken() function)
-                _mint(_from, _amount);
-    }
-}
-
-
-
-contract BasedWorkToken is ERC20Permit {
+contract BasedWorkToken {
 
 
 
 ////
-// Based Work Token Initializations 
+// Based Work Token Mining Initializations 
 ////
 
     uint public targetTime = 60*10;
@@ -1315,10 +1266,10 @@ contract BasedWorkToken is ERC20Permit {
     bool initeds = false;
     bool locked = false;
     
-    address public BasedWorkToken = address(0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B); //ZeroXBitcoin Address;  //Should be 0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B = Mainnet Base
+    address public _BasedWorkToken_Address = address(0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B); //ZeroXBitcoin Address;  //Should be 0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B = Mainnet Base
       
     
-	constructor() ERC20("Based Work Token", "BWORK", 18, 21_000_000 * 10 ** 18) ERC20Permit("Based Work Token") {
+	constructor(){
 		latestDifficultyPeriodStarted2 = block.timestamp;
 		latestDifficultyPeriodStarted = block.number;	
 		challengeNumber = blockhash(block.number -1); //generate a new one so we can start with a fresh
@@ -1410,9 +1361,9 @@ contract BasedWorkToken is ERC20Permit {
 			reward_amount = ( 50 * 10**18)/( 2**(rewardEra) );
 			payout = payout.div(2);
 		}
-		_mint(mintToAddress, payout);
-        ERC20(BasedWorkToken).transfer(msg.sender, payout);
-		emit Mint(msg.sender, payout, epochCount, localChallengeNumber );	
+
+        ERC20(_BasedWorkToken_Address).transfer(mintToAddress, payout);
+		emit Mint(mintToAddress, payout, epochCount, localChallengeNumber );	
 		
 		tokensMinted = tokensMinted.add(payout);
 
@@ -1468,9 +1419,9 @@ contract BasedWorkToken is ERC20Permit {
 		}
 
 
-        ERC20(BasedWorkToken).transfer(msg.sender, payout);
+        ERC20(_BasedWorkToken_Address).transfer(mintToAddress, payout);
 
-		emit Mint(msg.sender, payout, epochCount, localChallengeNumber );	
+		emit Mint(mintToAddress, payout, epochCount, localChallengeNumber );	
 		
 		tokensMinted = tokensMinted.add(payout);
 
@@ -1519,12 +1470,12 @@ contract BasedWorkToken is ERC20Permit {
 		}
 
         
-        ERC20(BasedWorkToken).transfer(msg.sender, localreward);
+        ERC20(_BasedWorkToken_Address).transfer(mintToAddress, localreward);
         
 		tokensMinted = tokensMinted.add(localreward);
 		
 
-		emit Mint(msg.sender, localreward, epochCount, localChallengeNumber);
+		emit Mint(mintToAddress, localreward, epochCount, localChallengeNumber);
 
 
 	}
