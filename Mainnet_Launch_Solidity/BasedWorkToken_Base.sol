@@ -20,7 +20,7 @@
     } 
     */
 //
-// Based Work Token - BWORK Token - Token and Mining Contract Base Network
+// Based Work Token - BWORK Token - Mining Contract Base Network
 //
 // Website: https://BasedWorkToken.org/
 // Github: https://github.com/BasedWorkToken/
