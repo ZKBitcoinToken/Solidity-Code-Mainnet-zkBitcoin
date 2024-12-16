@@ -1275,13 +1275,8 @@ contract BasedWorkToken is ERC20Permit {
 
 
 ////
-// Minting Stuff Follows
+// Based Work Token Initializations 
 ////
-
-
-    
-	//MUST REMOVE OWNABLE FROM CONTRACT BEFORE MAINNET LAUNCH
-
 
     uint public targetTime = 60*10;
     uint public startTime =  1738771200;  //Date and time (GMT): Wednesday, Feb 5, 2025 4:00:00 PM GMT
@@ -1320,7 +1315,6 @@ contract BasedWorkToken is ERC20Permit {
     bool initeds = false;
     bool locked = false;
     
-    //address public _RightsTo0xBitcoinV1_Address;
     address public BasedWorkToken = address(0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B); //ZeroXBitcoin Address;  //Should be 0xc4D4FD4F4459730d176844c170F2bB323c87Eb3B = Mainnet Base
       
     
